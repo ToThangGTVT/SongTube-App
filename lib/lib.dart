@@ -1,6 +1,10 @@
+// Dart
+import 'dart:io';
+
 // Flutter
 import 'package:animations/animations.dart';
 import 'package:audio_service/audio_service.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:newpipeextractor_dart/extractors/playlist.dart';
@@ -42,6 +46,7 @@ import 'package:songtube/ui/dialogs/loadingDialog.dart';
 import 'package:songtube/ui/sheets/disclaimer.dart';
 import 'package:songtube/ui/sheets/downloadFix.dart';
 import 'package:songtube/ui/internal/lifecycleEvents.dart';
+import 'package:palette_generator/palette_generator.dart';
 
 class Lib extends StatefulWidget {
   @override
@@ -321,10 +326,27 @@ class _LibState extends State<Lib> {
     }
   }
 
+  Future<PaletteGenerator> getImagePalette (ImageProvider imageProvider) async {
+    final PaletteGenerator paletteGenerator = await PaletteGenerator
+        .fromImageProvider(imageProvider);
+    return paletteGenerator;
+  }
+
   FloatingWidgetTwins _musicPlayerTwins() {
     return FloatingWidgetTwins(
       expanded: ExpandedPlayer(),
-      collapsed: CollapsedPanel()
+      collapsed: FutureBuilder<PaletteGenerator>(
+        future: getImagePalette(FileImage(File(AudioService.currentMediaItem.extras["artwork"]))),
+        builder: (BuildContext context, AsyncSnapshot<PaletteGenerator> snapshot) {
+          switch(snapshot.connectionState) {
+            case ConnectionState.done:
+              return CollapsedPanel(borderRadius: 0, paletteColor: snapshot.data);
+            default:
+              return Container();
+          }
+        },
+      )
+      // collapsed: CollapsedPanel()
     );
   }
 

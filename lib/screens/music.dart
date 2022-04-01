@@ -129,7 +129,7 @@ class _MediaScreenState extends State<MediaScreen> {
         child: Column(
           children: [
             Container(
-              height: 40,
+              height: 45,
               color: Theme.of(context).cardColor,
               child: TabBar(
                 isScrollable: true,
@@ -149,25 +149,25 @@ class _MediaScreenState extends State<MediaScreen> {
                 unselectedLabelColor: Theme.of(context).textTheme.bodyText1
                   .color.withOpacity(0.4),
                 indicator: MD2Indicator(
-                  indicatorSize: MD2IndicatorSize.tiny,
+                  indicatorSize: MD2IndicatorSize.normal,
                   indicatorHeight: 4,
                   indicatorColor: Theme.of(context).accentColor,
                 ),
                 tabs: [
                   Tab(child: Text(
-                    "Songs"
+                    "Songs", style: TextStyle(fontSize: 16)
                   )),
                   Tab(child: Text(
-                    "Playlists"
+                    "Playlists", style: TextStyle(fontSize: 16)
                   )),
                   Tab(child: Text(
-                    "Albums"
+                    "Albums", style: TextStyle(fontSize: 16)
                   )),
                   Tab(child: Text(
-                    "Artists"
+                    "Artists", style: TextStyle(fontSize: 16)
                   )),
                   Tab(child: Text(
-                    "Genres"
+                    "Genres", style: TextStyle(fontSize: 16)
                   ))
                 ],
               ),

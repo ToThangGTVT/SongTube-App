@@ -60,14 +60,14 @@ class SongsListView extends StatelessWidget {
               ? Theme.of(context).accentColor.withOpacity(0.08) : null,
             title: Text(
               song.title,
-              maxLines: 1,
+              maxLines: 2,
               overflow: TextOverflow.fade,
-              softWrap: false,
+              softWrap: true,
               style: TextStyle(
                 color: Theme.of(context).textTheme.bodyText1.color,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
                 fontFamily: 'Product Sans',
-                fontSize: 14,
+                fontSize: 15,
               ),
             ),
             subtitle: Text(
@@ -76,7 +76,7 @@ class SongsListView extends StatelessWidget {
               overflow: TextOverflow.fade,
               softWrap: false,
               style: TextStyle(
-                fontSize: 11,
+                fontSize: 13,
                 color: Theme.of(context).textTheme.bodyText1.color.withOpacity(0.6)
               ),
             ),
@@ -87,9 +87,9 @@ class SongsListView extends StatelessWidget {
                 Container(
                   height: 30,
                   width: 30,
-                  margin: EdgeInsets.only(right: 16),
+                  margin: EdgeInsets.only(right: 8),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    // borderRadius: BorderRadius.circular(10),
                     color: Colors.black12.withOpacity(0.04),
                   ),
                   child: Icon(
@@ -112,14 +112,11 @@ class SongsListView extends StatelessWidget {
                       )
                     ],
                   ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: FadeInImage(
-                      fadeInDuration: Duration(milliseconds: 200),
-                      placeholder: MemoryImage(kTransparentImage),
-                      image: FileImage(File(song.extras["artwork"])),
-                      fit: BoxFit.cover,
-                    )
+                  child: FadeInImage(
+                    fadeInDuration: Duration(milliseconds: 200),
+                    placeholder: MemoryImage(kTransparentImage),
+                    image: FileImage(File(song.extras["artwork"])),
+                    fit: BoxFit.cover,
                   ),
                 ),
               ],
@@ -237,7 +234,7 @@ class SongsListView extends StatelessWidget {
               } else {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => 
+                  MaterialPageRoute(builder: (context) =>
                     AppVideoPlayer(VideoFile(
                       name: song.title,
                       path: song.id,

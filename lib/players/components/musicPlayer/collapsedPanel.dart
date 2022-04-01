@@ -14,11 +14,13 @@ import 'package:audio_service/audio_service.dart';
 import 'package:songtube/players/service/screenStateStream.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:palette_generator/palette_generator.dart';
 
 class CollapsedPanel extends StatelessWidget {
   final double borderRadius;
+  final PaletteGenerator paletteColor;
   CollapsedPanel({
-    this.borderRadius
+    this.borderRadius, this.paletteColor
   });
   //ignore: close_sinks
   final BehaviorSubject<double> _dragPositionSubject =
@@ -27,14 +29,7 @@ class CollapsedPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: kBottomNavigationBarHeight * 1.15,
-      decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.only(
-          topRight: Radius.circular(10),
-          topLeft: Radius.circular(10)
-
-        )
-      ),
+      color: this.paletteColor.darkMutedColor != null ? this.paletteColor.darkMutedColor.color : Colors.redAccent,
       child: Row(
         children: [
           // Song AlbumArt & Title and Author
@@ -45,7 +40,7 @@ class CollapsedPanel extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(left: 12),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(this.borderRadius),
                     child: FadeInImage(
                       height: 50,
                       width: 50,
@@ -72,8 +67,9 @@ class CollapsedPanel extends StatelessWidget {
                             "${AudioService.currentMediaItem.title}",
                             style: TextStyle(
                               fontFamily: 'Product Sans',
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: this.paletteColor.darkMutedColor != null ? this.paletteColor.darkMutedColor.bodyTextColor : Colors.black
                             ),
                             maxLines: 1,
                             overflow: TextOverflow.fade,
@@ -86,7 +82,8 @@ class CollapsedPanel extends StatelessWidget {
                           style: TextStyle(
                             fontFamily: 'Product Sans',
                             fontSize: 11,
-                            color: Theme.of(context).textTheme.bodyText1.color.withOpacity(0.6)
+                            fontWeight: FontWeight.bold,
+                            color: this.paletteColor.darkMutedColor != null ? this.paletteColor.darkMutedColor.titleTextColor : Colors.black
                           ),
                           overflow: TextOverflow.fade,
                           softWrap: false,
