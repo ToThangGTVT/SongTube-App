@@ -419,7 +419,7 @@ class StreamManifestPlayerState extends State<StreamManifestPlayer> {
         ),
         // Player Controls and Gestures
         AnimatedSwitcher(
-          duration: Duration(milliseconds: 400),
+          duration: Duration(milliseconds: 100),
           child: showStreamQualityMenu 
             ? _playbackQualityOverlay()
             : _playbackControlsOverlay()
@@ -434,6 +434,8 @@ class StreamManifestPlayerState extends State<StreamManifestPlayer> {
       children: [
         // Video Beign Played
         FadeInImage(
+          width: double.infinity,
+          fit: BoxFit.cover,
           placeholder: MemoryImage(kTransparentImage),
           image: widget.videoThumbnail == null
             ? AssetImage('assets/images/artworkPlaceholder_big.png')
@@ -582,7 +584,7 @@ class StreamManifestPlayerState extends State<StreamManifestPlayer> {
               Flexible(
                 flex: 1,
                 child: Container(
-                  margin: EdgeInsets.all(50),
+                  // margin: EdgeInsets.all(50),
                   alignment: Alignment.center,
                   color: Colors.transparent,
                   child: AnimatedSwitcher(

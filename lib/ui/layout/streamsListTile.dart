@@ -101,15 +101,15 @@ class StreamsListTileView extends StatelessWidget {
                               Container(
                                 padding: EdgeInsets.only(
                                   left: 8,
-                                  right: 8,
-                                  top: 4,
+                                  right: 0,
+                                  top: 0,
                                   bottom: 4
                                 ),
                                 child: Text(
                                   video.name,
                                   style: TextStyle(
                                     color: Theme.of(context).textTheme.bodyText1.color,
-                                    fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.w700,
                                     fontFamily: 'Product Sans',
                                     fontSize: 14,
                                   ),
