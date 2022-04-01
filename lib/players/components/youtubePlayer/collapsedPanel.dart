@@ -21,7 +21,7 @@ class VideoPageCollapsed extends StatelessWidget {
       height: kBottomNavigationBarHeight * 1.15,
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(10)
+        // borderRadius: BorderRadius.circular(10)
       ),
       child: Row(
         children: [
@@ -30,11 +30,11 @@ class VideoPageCollapsed extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  height: 50,
-                  width: 50,
-                  margin: EdgeInsets.only(left: 8),
+                  height: 68,
+                  width: 120,
+                  // margin: EdgeInsets.only(left: 8),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
+                    // borderRadius: BorderRadius.circular(0),
                     child: pageProvider.infoItem is StreamInfoItem
                     ? FadeInImage(
                         fadeInDuration: Duration(milliseconds: 400),
@@ -128,7 +128,7 @@ class VideoPageCollapsed extends StatelessWidget {
               )
             ),
           ),
-          SizedBox(width: 16)
+          SizedBox(width: 8)
         ],
       ),
     );

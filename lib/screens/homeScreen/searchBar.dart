@@ -73,12 +73,11 @@ class _HomePageAppBarState extends State<HomePageAppBar> with TickerProviderStat
           ),
           Expanded(
             child: Container(
-              margin: EdgeInsets.only(left: 18, right: 18),
-              height: kToolbarHeight*0.9,
+              margin: EdgeInsets.only(left: 16, right: 16, top: 8),
+              height: kToolbarHeight*0.75,
               decoration: BoxDecoration(
-                color: Theme.of(context).iconTheme.color
-                  .withOpacity(0.03),
-                borderRadius: BorderRadius.circular(100)
+                color: Theme.of(context).disabledColor.withOpacity(0.1),
+                // borderRadius: BorderRadius.circular(8)
               ),
               child: Row(
                 children: [
@@ -260,6 +259,8 @@ class _HomePageAppBarState extends State<HomePageAppBar> with TickerProviderStat
         decoration: InputDecoration(
           hintText: Languages.of(context).labelSearchYoutube,
           hintStyle: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
             color: Theme.of(context).textTheme.bodyText1.color.withOpacity(0.6),
           ),
           border: UnderlineInputBorder(

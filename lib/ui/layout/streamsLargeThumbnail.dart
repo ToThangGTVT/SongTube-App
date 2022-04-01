@@ -306,38 +306,35 @@ class StreamsLargeThumbnailView extends StatelessWidget {
             ),
         SizedBox(width: 12),
         Expanded(
-          child: Padding(
-            padding: EdgeInsets.only(top: 2),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "${infoItem.name}",
-                  maxLines: 2,
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1.color,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: 'Product Sans',
-                    fontSize: 14,
-                  ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "${infoItem.name}",
+                maxLines: 2,
+                style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyText1.color,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'Product Sans',
+                  fontSize: 14,
                 ),
-                SizedBox(height: 4),
-                Text(
-                  "${infoItem.uploaderName}" +
-                  (infoItem is StreamInfoItem
-                    ? "${infoItem.viewCount != -1 ? " • " + NumberFormat.compact().format(infoItem.viewCount) + " views" : ""}"
-                      " ${infoItem.uploadDate == null ? "" : " • " + infoItem.uploadDate}"
-                    : ""),
-                  style: TextStyle(
+              ),
+              SizedBox(height: 4),
+              Text(
+                "${infoItem.uploaderName}" +
+                    (infoItem is StreamInfoItem
+                        ? "${infoItem.viewCount != -1 ? " • " + NumberFormat.compact().format(infoItem.viewCount) + " views" : ""}"
+                        " ${infoItem.uploadDate == null ? "" : " • " + infoItem.uploadDate}"
+                        : ""),
+                style: TextStyle(
                     fontSize: 12,
                     color: Theme.of(context).textTheme.bodyText1.color
-                      .withOpacity(0.8),
+                        .withOpacity(0.8),
                     fontFamily: 'Product Sans'
-                  ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
         ),
         StreamsPopupMenu(
