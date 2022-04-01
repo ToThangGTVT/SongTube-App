@@ -97,7 +97,7 @@ class PlayerControls extends StatelessWidget {
               // Previous button
               IconButton(
                 icon: Icon(
-                  Icons.arrow_back_ios,
+                  Icons.skip_previous,
                   size: 18,
                   color: textColor.withOpacity(0.7)
                 ),
@@ -143,7 +143,7 @@ class PlayerControls extends StatelessWidget {
               // Next button
               IconButton(
                 icon: Icon(
-                  Icons.arrow_forward_ios,
+                  Icons.skip_next,
                   size: 18,
                   color: textColor.withOpacity(0.7)
                 ),
