@@ -23,28 +23,28 @@ class PlayerAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     PreferencesProvider prefs = Provider.of<PreferencesProvider>(context);
     return Container(
-      margin: EdgeInsets.all(16),
+      margin: EdgeInsets.all(8),
       child: Row(
         children: [
           SizedBox(width: 8),
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Icon(MdiIcons.circle, color: Colors.white, size: 16),
-              Icon(MdiIcons.youtube, color: Colors.red, size: 32),
-            ],
-          ),
-          SizedBox(width: 8),
+          // Stack(
+          //   alignment: Alignment.center,
+          //   children: [
+          //     Icon(MdiIcons.circle, color: Colors.white, size: 16),
+          //     Icon(MdiIcons.youtube, color: Colors.red, size: 32),
+          //   ],
+          // ),
+          // SizedBox(width: 8),
           Expanded(
             child: Text(
               "$videoTitle",
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 12,
+                fontSize: 14,
                 fontFamily: 'Product Sans',
                 fontWeight: FontWeight.w600
               ),
-              maxLines: 1,
+              maxLines: 2,
               overflow: TextOverflow.fade,
               softWrap: false,
             ),

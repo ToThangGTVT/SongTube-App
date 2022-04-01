@@ -296,7 +296,7 @@ class _YoutubePlayerVideoPageState extends State<YoutubePlayerVideoPage> with Ti
           AnimatedSize(
             duration: Duration(milliseconds: 250),
             child: Container(
-              margin: EdgeInsets.only(left: 12, right: 12),
+              // margin: EdgeInsets.only(left: 0, right: 0),
               child: MeasureSize(
                 onChange: (Size size) {
                   playerHeight = size.height;
@@ -365,7 +365,7 @@ class _YoutubePlayerVideoPageState extends State<YoutubePlayerVideoPage> with Ti
                   _portraitMainBody(),
                   Expanded(
                     child: AnimatedSwitcher(
-                      duration: Duration(milliseconds: 300),
+                      duration: Duration(milliseconds: 100),
                       child: ListView(
                         controller: scrollController,
                         padding: EdgeInsets.zero,
@@ -422,7 +422,7 @@ class _YoutubePlayerVideoPageState extends State<YoutubePlayerVideoPage> with Ti
                   // Playlist & Videos
                   Expanded(
                     child: AnimatedSwitcher(
-                      duration: Duration(milliseconds: 300),
+                      duration: Duration(milliseconds: 100),
                       child: ListView(
                         padding: EdgeInsets.zero,
                         children: [

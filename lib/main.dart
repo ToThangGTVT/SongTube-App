@@ -140,8 +140,8 @@ class _MainState extends State<Main> {
         ThemeData darkTheme;
 
         darkTheme = config.blackThemeEnabled 
-                    ? AppTheme.black(config.accentColor)
-                    : AppTheme.dark(config.accentColor);
+                    ? AppTheme.black(Colors.red)
+                    : AppTheme.black(Colors.red);
 
         customTheme = config.darkThemeEnabled
                       ? darkTheme

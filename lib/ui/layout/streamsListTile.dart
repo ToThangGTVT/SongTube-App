@@ -38,7 +38,7 @@ class StreamsListTileView extends StatelessWidget {
             itemBuilder: (context, index) {
               StreamInfoItem video = streams[index];
               return FadeInTransition(
-                duration: Duration(milliseconds: 300),
+                duration: Duration(milliseconds: 100),
                 child: GestureDetector(
                   onTap: () => onTap(video, index),
                   child: Container(
@@ -58,7 +58,7 @@ class StreamsListTileView extends StatelessWidget {
                             alignment: Alignment.bottomRight,
                             children: [
                               ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
+                                // borderRadius: BorderRadius.circular(0),
                                 child: AspectRatio(
                                   aspectRatio: 16/9,
                                   child: FadeInImage(

@@ -394,7 +394,7 @@ class StreamManifestPlayerState extends State<StreamManifestPlayer> {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(widget.borderRadius),
+      // borderRadius: BorderRadius.circular(widget.borderRadius),
       child: Material(
         color: Colors.black,
         child: audioOnly

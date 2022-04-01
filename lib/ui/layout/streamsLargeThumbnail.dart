@@ -57,11 +57,11 @@ class StreamsLargeThumbnailView extends StatelessWidget {
           itemBuilder: (context, index) {
             dynamic infoItem = infoItems[index];
             return FadeInTransition(
-              duration: Duration(milliseconds: 300),
+              duration: Duration(milliseconds: 100),
               child: Padding(
                 padding: EdgeInsets.only(
                   bottom: 16, top: index == 0 ? 12 : 0,
-                  left: 12, right: 12
+                  left: 0, right: 0
                 ),
                 child: Consumer<VideoPageProvider>(
                   builder: (context, provider, child) {
@@ -89,14 +89,11 @@ class StreamsLargeThumbnailView extends StatelessWidget {
                     : Column(
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: _thumbnailWidget(infoItem)
-                            ),
+                            padding: EdgeInsets.only(bottom: 10),
+                            child: _thumbnailWidget(infoItem),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(bottom: 8),
+                            padding: EdgeInsets.only(bottom: 10, left: 10, right: 10),
                             child: _infoItemDetails(context, infoItem),
                           )
                         ],
@@ -190,7 +187,7 @@ class StreamsLargeThumbnailView extends StatelessWidget {
             scale: 1.01,
             child: infoItem is StreamInfoItem
               ? FadeInImage(
-                  fadeInDuration: Duration(milliseconds: 200),
+                  fadeInDuration: Duration(milliseconds: 100),
                   placeholder: MemoryImage(kTransparentImage),
                   image: NetworkImage(infoItem.thumbnails.maxresdefault),
                   fit: BoxFit.cover,
@@ -198,7 +195,7 @@ class StreamsLargeThumbnailView extends StatelessWidget {
                     Image.network(infoItem.thumbnails.hqdefault, fit: BoxFit.cover),
                 )
               : FadeInImage(
-                  fadeInDuration: Duration(milliseconds: 200),
+                  fadeInDuration: Duration(milliseconds: 100),
                   placeholder: MemoryImage(kTransparentImage),
                   image: NetworkImage(infoItem.thumbnailUrl),
                   fit: BoxFit.cover,
@@ -210,7 +207,7 @@ class StreamsLargeThumbnailView extends StatelessWidget {
           alignment: Alignment.bottomRight,
           child: Container(
             margin: EdgeInsets.only(right: 10, bottom: 10),
-            padding: EdgeInsets.all(3),
+            padding: EdgeInsets.all(5),
             decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.6),
               borderRadius: BorderRadius.circular(3)
@@ -222,7 +219,7 @@ class StreamsLargeThumbnailView extends StatelessWidget {
                 fontFamily: 'Product Sans',
                 fontWeight: FontWeight.w600,
                 color: Colors.white,
-                fontSize: 10
+                fontSize: 12
               ),
             )
           ),
@@ -275,20 +272,20 @@ class StreamsLargeThumbnailView extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(100),
                         child: FadeInImage(
-                          fadeInDuration: Duration(milliseconds: 300),
+                          fadeInDuration: Duration(milliseconds: 100),
                           placeholder: MemoryImage(kTransparentImage),
                           image: NetworkImage(snapshot.data),
                           fit: BoxFit.cover,
-                          height: 50,
-                          width: 50,
+                          height: 34,
+                          width: 34,
                         ),
                       ),
                     ),
                   );
                 } else {
                   return ShimmerContainer(
-                    height: 50,
-                    width: 50,
+                    height: 34,
+                    width: 34,
                     borderRadius: BorderRadius.circular(100),
                   );
                 }
@@ -333,7 +330,7 @@ class StreamsLargeThumbnailView extends StatelessWidget {
                       " ${infoItem.uploadDate == null ? "" : " • " + infoItem.uploadDate}"
                     : ""),
                   style: TextStyle(
-                    fontSize: 11,
+                    fontSize: 12,
                     color: Theme.of(context).textTheme.bodyText1.color
                       .withOpacity(0.8),
                     fontFamily: 'Product Sans'

@@ -53,7 +53,7 @@ class _PlayerProgressBarState extends State<PlayerProgressBar> with TickerProvid
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: 16, left: 16, right: 16, bottom: 8
+        top: 8, left: 8, right: 8, bottom: 8
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -69,14 +69,16 @@ class _PlayerProgressBarState extends State<PlayerProgressBar> with TickerProvid
                   color: Colors.white,
                   fontFamily: 'Product Sans',
                   fontWeight: FontWeight.w600,
-                  fontSize: 10
+                  fontSize: 14
                 ),
               ),
               Expanded(
                 child: SizedBox(
-                  height: 10,
+                  height: 16,
                   child: FlutterSlider(
                     trackBar: FlutterSliderTrackBar(
+                      activeTrackBarHeight: 5,
+                      inactiveTrackBarHeight: 4,
                       inactiveTrackBar: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         color: Colors.white.withOpacity(0.2)
@@ -90,7 +92,7 @@ class _PlayerProgressBarState extends State<PlayerProgressBar> with TickerProvid
                       boxStyle: FlutterSliderTooltipBox(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          color: Colors.white
+                          color: Theme.of(context).accentColor
                         )
                       ),
                       textStyle: TextStyle(
@@ -160,7 +162,7 @@ class _PlayerProgressBarState extends State<PlayerProgressBar> with TickerProvid
                   color: Colors.white,
                   fontFamily: 'Product Sans',
                   fontWeight: FontWeight.w600,
-                  fontSize: 10
+                  fontSize: 14
                 ),
               ),
               SizedBox(width: 16),

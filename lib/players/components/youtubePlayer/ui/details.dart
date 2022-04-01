@@ -30,11 +30,11 @@ class VideoDetails extends StatelessWidget {
                   children: [
                     // Video Title
                     Padding(
-                      padding: const EdgeInsets.only(right: 16, bottom: 4),
+                      padding: const EdgeInsets.only(right: 0, bottom: 4),
                       child: Text(
                         title,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
                           fontWeight: FontWeight.w600,
                           fontFamily: 'Product Sans',
                           color: Theme.of(context).textTheme.bodyText1.color,

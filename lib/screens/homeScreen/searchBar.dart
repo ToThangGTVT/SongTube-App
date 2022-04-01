@@ -230,7 +230,7 @@ class _HomePageAppBarState extends State<HomePageAppBar> with TickerProviderStat
                     color: Theme.of(context).textTheme.bodyText1.color.withOpacity(0.6),
                     fontFamily: 'Product Sans',
                     fontWeight: FontWeight.w700,
-                    fontSize: 20,
+                    fontSize: 18,
                   )
                 ),
               ),
